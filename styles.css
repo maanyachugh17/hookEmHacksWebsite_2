@@ -302,7 +302,8 @@ body {
 
 .section h2 {
   font-size: 48px;
-  color: #000000;
+  color: #f7ce79;
+  -webkit-text-stroke: 1.5px #000000; 
   font-family: "Test";
   margin-bottom: 30px;
 }
@@ -357,7 +358,8 @@ body {
   font-size: 36px;
   text-transform: uppercase;
   letter-spacing: 4px;
-  color: #000000;
+  color: #f7ce79;
+  -webkit-text-stroke: 1.5px #000000; 
   margin-bottom: 40px;
   font-weight: 900;
   padding-left: 0;
@@ -517,7 +519,7 @@ body {
   font-family: "Test";
   font-size: 20px;
   font-weight: 300;
-  color: #ffffff;
+  color: #f7ce79;
   letter-spacing: 2px;
   background: rgba(0, 30, 70, 0.6);
   border-bottom: 2px solid rgba(255, 255, 255, 0.15);
@@ -725,7 +727,7 @@ body {
 
 /* register button */
 #registButton {
-  position: relative; /* already absolute, so add this to contain the span */
+  position: relative; 
 }
 
 .register-label {
@@ -933,7 +935,8 @@ body {
 .team-section h2 {
   font-family: "Test";
   font-size: 36px;
-  color: #000000;
+  color: #f7ce79;
+  -webkit-text-stroke: 1.5px #000000; 
   margin-bottom: 40px;
   text-align: center;
   letter-spacing: 4px;
@@ -1056,7 +1059,8 @@ body {
 }
 
 .team-info h3 {
-  color: #ffffff;
+  color: #f7ce79;
+  -webkit-text-stroke: 1.5px #000000; 
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 3px;
@@ -1319,7 +1323,8 @@ body {
 
 /* Text Styling */
 .track-card h3 {
-  color: #000000;
+  color: #f7ce79;
+  -webkit-text-stroke: 1px #000000; 
   font-size: 1.8rem;
   margin-bottom: 20px;
   letter-spacing: 2px;
@@ -1495,7 +1500,8 @@ body {
   font-size: 48px;
   text-transform: uppercase;
   letter-spacing: 4px;
-  color: #000000;
+  color: #f7ce79;
+  -webkit-text-stroke: 1.5px #000000; 
   margin-bottom: 20px;
   font-weight: 900;
 }
