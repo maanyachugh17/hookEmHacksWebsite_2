@@ -258,11 +258,19 @@ function updateTeamDisplay() {
   document.getElementById("teamPhoto").src = team.photo;
   document.getElementById("teamPhoto").alt = team.name;
   document.getElementById("teamName").textContent = team.name;
-  document.getElementById("teamLeads").textContent = team.leads;
+  document.getElementById("teamLeads").textContent = team.leads.startsWith("Director:")
+  ? team.leads.replace("Director: ", "")
+  : team.leads;
 
   const leadsLabel = document.querySelector("#teamCard .team-detail:first-of-type .team-label");
-  const leadCount = team.leads.split(",").length;
-  if (leadsLabel) leadsLabel.textContent = leadCount === 1 ? "Lead" : "Leads";
+  if (leadsLabel) {
+    if (team.leads.startsWith("Director:")) {
+      leadsLabel.textContent = "Director";
+    } else {
+      const leadCount = team.leads.split(",").length;
+      leadsLabel.textContent = leadCount === 1 ? "Lead" : "Leads";
+    }
+  }
 
   const membersEl = document.getElementById("teamMembers");
   const membersDetail = membersEl.closest(".team-detail");
@@ -272,7 +280,6 @@ function updateTeamDisplay() {
   } else {
     membersDetail.style.display = "none";
   }
-
   updateIndicators();
 }
 
