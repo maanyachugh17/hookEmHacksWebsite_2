@@ -28,42 +28,60 @@ let dragStartY = 0;
 let scrollStartY = 0;
 
 // Team data
-const teams = [ 
+const teams = [
   {
     name: "ENTIRE TEAM",
-    photo: "../assets/team/design_team.jpg",
-    leads: "Leads: ###",
-    members: "Members: ###",
-  },
-  {
-    name: "DESIGN TEAM",
-    photo: "../assets/team/design_team.jpg",
-    leads: "Leads: ###",
-    members: "Members: ###",
+    photo: "./assets/team/design_team.jpg",
+    leads: "Director: Maanya Chugh",
+    members: "Anika Srinivasan, Aristoteles Cortes-Loera, Aryan Jalota, Damodar Kamani, Harini Champooranan, Hrishi Kamireddy, Kyra Browning, Lillian Cutrer, Nasser Shaik, Nima Ansari, Noah Fishman, Priscilla Ye, Shrestha Mishra, Sofia Porras, Sophie Liu, Swyam Dubey",
   },
   {
     name: "TECH TEAM",
-    photo: "../assets/team/tech_team.jpg",
-    leads: "Leads: ###",
-    members: "Members: ###",
+    photo: "./assets/team/tech_team.jpg",
+    leads: "Leads: Aryan Jalota, Nasser Shaik",
+    members: "Hrishi Kamireddy, Shrestha Mishra",
+  },
+  {
+    name: "DESIGN TEAM",
+    photo: "./assets/team/design_team.jpg",
+    leads: "Lead: Nicole Garcia",
+    members: "Rujula Padala",
   },
   {
     name: "MARKETING TEAM",
-    photo: "../assets/team/marketing_team.jpg",
-    leads: "Leads: ###",
-    members: "Members: ###",
+    photo: "./assets/team/marketing_team.jpg",
+    leads: "Co-Leads: Sofia Porras, Sophie Liu",
+    members: "Kyra Browning",
   },
   {
-    name: "OPERATIONS TEAM",
-    photo: "../assets/team/operations_team.jpg",
-    leads: "Leads: ###",
-    members: "Members: ###",
+    name: "EXPERIENCE TEAM",
+    photo: "./assets/team/operations_team.jpg",
+    leads: "Lead: Priscilla Ye",
+    members: "Damodar Kamani, Swyam Dubey",
   },
   {
     name: "SPONSORSHIP TEAM",
-    photo: "../assets/team/sponsorship_team.jpg",
-    leads: "Leads: ###",
-    members: "Members: ###",
+    photo: "./assets/team/sponsorship_team.jpg",
+    leads: "Lead: Aristoteles Cortes-Loera",
+    members: "Harini Champooranan",
+  },
+  {
+    name: "LOGISTICS TEAM",
+    photo: "./assets/team/operations_team.jpg",
+    leads: "Lead: Aryan Jalota",
+    members: "Lillian Cutrer",
+  },
+  {
+    name: "OUTREACH TEAM",
+    photo: "./assets/team/marketing_team.jpg",
+    leads: "Co-Leads: Noah Fishman, Nima Ansari",
+    members: "",
+  },
+  {
+    name: "FINANCE",
+    photo: "./assets/team/sponsorship_team.jpg",
+    leads: "Lead: Anika Srinivasan",
+    members: "",
   },
 ];
 
@@ -82,7 +100,12 @@ window.addEventListener('resize', () => {
 let currentTeamIndex = 0;
 
 // Ocean Bubbles
+const oceanBubblesContainer = document.getElementById("oceanBubbles");
+const MAX_BUBBLES = 12;
+
 function createOceanBubble() {
+  if (oceanBubblesContainer.childElementCount >= MAX_BUBBLES) return;
+
   const bubble = document.createElement("div");
   bubble.className = "bubble";
   const size = Math.random() * 60 + 20;
@@ -93,27 +116,19 @@ function createOceanBubble() {
   bubble.style.animationDuration = Math.random() * 10 + 10 + "s";
   bubble.style.animationDelay = Math.random() * 5 + "s";
   bubble.style.position = "fixed";
+  bubble.style.cursor = "pointer";
 
-  bubble.style.cursor = "pointer"; 
-  // Pop on click
   bubble.addEventListener("click", () => {
     bubble.classList.add("popping");
     setTimeout(() => bubble.remove(), 300);
   });
 
-  document.getElementById("oceanBubbles").appendChild(bubble);
+  oceanBubblesContainer.appendChild(bubble);
   setTimeout(() => bubble.remove(), 20000);
-
-
-  /*
-  document.getElementById("oceanBubbles").appendChild(bubble);
-
-  setTimeout(() => bubble.remove(), 20000);*/
 }
 
-// Initialize bubbles
-setInterval(createOceanBubble, 1000);
-for (let i = 0; i < 10; i++) createOceanBubble();
+setInterval(createOceanBubble, 2000);
+for (let i = 0; i < 6; i++) createOceanBubble();
 
 // Custom Scrollbar - Mouse Events
 thumb.addEventListener("mousedown", (e) => {
@@ -140,45 +155,38 @@ document.addEventListener("mouseup", () => {
   document.body.style.userSelect = "";
 });
 
-// Scroll Event - Update scrollbar thumb position
-window.addEventListener("scroll", () => {
+// Cache parallax elements once (avoid querying on every scroll)
+const deepOcean = document.querySelector(".layer-deep-ocean");
+const midOcean = document.querySelector(".layer-mid-ocean");
+const shallowOcean = document.querySelector(".layer-shallow-ocean");
+
+let scrollTicking = false;
+
+function onScroll() {
   const scrollTop = window.scrollY;
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+  const winHeight = window.innerHeight;
+  const maxScroll = docHeight - winHeight;
+
+  // Scrollbar thumb position
   const progress = scrollTop / maxScroll;
   const thumbHeight = thumb.offsetHeight;
   const offset = 40;
-  const maxY = window.innerHeight - thumbHeight - offset;
-  const y = progress * maxY + offset;
-  thumb.style.top = `${y}px`;
+  const maxY = winHeight - thumbHeight - offset;
+  thumb.style.top = `${progress * maxY + offset}px`;
 
-  // Adjust scrollbar-track height based on scroll position
-  const distanceFromBottom = document.documentElement.scrollHeight - (scrollTop + window.innerHeight);
-  if (distanceFromBottom <= 200) {
-    // near bottom, steadily retract scrollbar track to 96%
-    const trackHeight = 94 + distanceFromBottom/20;
-    track.style.height = `${trackHeight}%`;
-  } else {
-    track.style.height = "100%";
-  }
-});
+  // Scrollbar track retraction near bottom
+  const distanceFromBottom = docHeight - (scrollTop + winHeight);
+  track.style.height = distanceFromBottom <= 200
+    ? `${94 + distanceFromBottom / 20}%`
+    : "100%";
 
-// Parallax Effect
-window.addEventListener("scroll", () => {
-  const scrolled = window.pageYOffset;
-  const deepOcean = document.querySelector(".layer-deep-ocean");
-  const midOcean = document.querySelector(".layer-mid-ocean");
-  const shallowOcean = document.querySelector(".layer-shallow-ocean");
-  const oceanBubblesEl = document.querySelector(".ocean-bubbles");
+  // Parallax (only if elements exist)
+  if (deepOcean) deepOcean.style.transform = `translateY(${scrollTop * 0.2}px)`;
+  if (midOcean) midOcean.style.transform = `translateY(${scrollTop * 0.4}px)`;
+  if (shallowOcean) shallowOcean.style.transform = `translateY(${scrollTop * 0.6}px)`;
 
-  if (deepOcean) deepOcean.style.transform = `translateY(${scrolled * 0.2}px)`;
-  if (midOcean) midOcean.style.transform = `translateY(${scrolled * 0.4}px)`;
-  if (shallowOcean)
-    shallowOcean.style.transform = `translateY(${scrolled * 0.6}px)`;
-});
-
-// Navbar Show/Hide on Scroll
-window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY;
+  // Navbar show/hide
   if (!isScrollingFromClick) {
     if (scrollTop > lastScrollTop) {
       navbar.classList.add("hidden");
@@ -189,7 +197,16 @@ window.addEventListener("scroll", () => {
     }
   }
   lastScrollTop = scrollTop;
-});
+
+  scrollTicking = false;
+}
+
+window.addEventListener("scroll", () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(onScroll);
+    scrollTicking = true;
+  }
+}, { passive: true });
 
 // Smooth Scroll for Navigation Links
 document.querySelectorAll(".navbar-links a").forEach((link) => {
@@ -242,9 +259,17 @@ function updateTeamDisplay() {
   document.getElementById("teamPhoto").alt = team.name;
   document.getElementById("teamName").textContent = team.name;
   document.getElementById("teamLeads").textContent = team.leads;
-  document.getElementById("teamMembers").textContent = team.members;
+
+  const membersEl = document.getElementById("teamMembers");
+  const membersDetail = membersEl.closest(".team-detail");
+  if (team.members) {
+    membersEl.textContent = team.members;
+    membersDetail.style.display = "";
+  } else {
+    membersDetail.style.display = "none";
+  }
+
   updateIndicators();
-  //buildTeamTabs();
 }
 
 function changeTeam(direction) {
@@ -304,4 +329,65 @@ updateTeamDisplay();
 document.getElementById("registButton").addEventListener("click", (e) => {
   e.stopPropagation();
   window.open("https://forms.gle/RaPX1hgw51VMnHM28", "_blank");
+});
+
+// Hamburger Menu
+const hamburger = document.getElementById("hamburger");
+const navbarLinks = document.getElementById("navbarLinks");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navbarLinks.classList.toggle("open");
+});
+
+navbarLinks.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navbarLinks.classList.remove("open");
+  });
+});
+
+// Countdown Timer
+function updateCountdown() {
+  const target = new Date("April 18, 2026 09:00:00").getTime();
+  const now = Date.now();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById("cd-days").textContent = "0";
+    document.getElementById("cd-hours").textContent = "0";
+    document.getElementById("cd-mins").textContent = "0";
+    document.getElementById("cd-secs").textContent = "0";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById("cd-days").textContent = days;
+  document.getElementById("cd-hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("cd-mins").textContent = String(mins).padStart(2, "0");
+  document.getElementById("cd-secs").textContent = String(secs).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Section Reveal on Scroll
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
+document.querySelectorAll(".section, .team-section").forEach((section) => {
+  revealObserver.observe(section);
 });
