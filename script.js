@@ -38,49 +38,49 @@ const teams = [
   {
     name: "TECH TEAM",
     photo: "./assets/team/tech_team.jpg",
-    leads: "Leads: Aryan Jalota, Nasser Shaik",
+    leads: "Aryan Jalota, Nasser Shaik",
     members: "Hrishi Kamireddy, Shrestha Mishra",
   },
   {
     name: "DESIGN TEAM",
     photo: "./assets/team/design_team.jpg",
-    leads: "Lead: Nicole Garcia",
+    leads: "Nicole Garcia",
     members: "Rujula Padala",
   },
   {
     name: "MARKETING TEAM",
     photo: "./assets/team/marketing_team.jpg",
-    leads: "Co-Leads: Sofia Porras, Sophie Liu",
+    leads: "Sofia Porras, Sophie Liu",
     members: "Kyra Browning",
   },
   {
     name: "EXPERIENCE TEAM",
     photo: "./assets/team/operations_team.jpg",
-    leads: "Lead: Priscilla Ye",
+    leads: "Priscilla Ye",
     members: "Damodar Kamani, Swyam Dubey",
   },
   {
     name: "SPONSORSHIP TEAM",
     photo: "./assets/team/sponsorship_team.jpg",
-    leads: "Lead: Aristoteles Cortes-Loera",
+    leads: "Aristoteles Cortes-Loera",
     members: "Harini Champooranan",
   },
   {
     name: "LOGISTICS TEAM",
     photo: "./assets/team/operations_team.jpg",
-    leads: "Lead: Aryan Jalota",
+    leads: "Aryan Jalota",
     members: "Lillian Cutrer",
   },
   {
     name: "OUTREACH TEAM",
     photo: "./assets/team/marketing_team.jpg",
-    leads: "Co-Leads: Noah Fishman, Nima Ansari",
+    leads: "Noah Fishman, Nima Ansari",
     members: "",
   },
   {
-    name: "FINANCE",
+    name: "FINANCE TEAM",
     photo: "./assets/team/sponsorship_team.jpg",
-    leads: "Lead: Anika Srinivasan",
+    leads: "Anika Srinivasan",
     members: "",
   },
 ];
@@ -259,6 +259,10 @@ function updateTeamDisplay() {
   document.getElementById("teamPhoto").alt = team.name;
   document.getElementById("teamName").textContent = team.name;
   document.getElementById("teamLeads").textContent = team.leads;
+
+  const leadsLabel = document.querySelector("#teamCard .team-detail:first-of-type .team-label");
+  const leadCount = team.leads.split(",").length;
+  if (leadsLabel) leadsLabel.textContent = leadCount === 1 ? "Lead" : "Leads";
 
   const membersEl = document.getElementById("teamMembers");
   const membersDetail = membersEl.closest(".team-detail");
