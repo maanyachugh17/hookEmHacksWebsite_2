@@ -1738,6 +1738,11 @@ body {
   margin-bottom: 60px;
 }
 
+.sponsors-header p a {
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
 .sponsors-header h2 {
   font-family: "Test";
   font-size: 48px;
