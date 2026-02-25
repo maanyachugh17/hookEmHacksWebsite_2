@@ -1894,6 +1894,14 @@ body {
   transform: scale(1);
 }
 
+.sponsor-logo-container img[src*="Pure-Buttons"] {
+  transform: scale(0.55);
+}
+
+.sponsor-logo-item img[src*="Pure-Buttons"] {
+  transform: scale(0.55);
+}
+
 .sponsor-logo-container:hover {
   transform: translateY(-5px);
   transform: scale(1.15);
