@@ -203,6 +203,13 @@ body {
   z-index: 10;
 }
 
+/* MLH Trust Badge (Only appears behind Nav Bar on Mobile*/
+@media (max-width: 768px) {
+  #mlh-trust-badge {
+    z-index: 998 !important;
+  }
+}
+
 /* Navigation Bar */
 .navbar {
   position: fixed;
