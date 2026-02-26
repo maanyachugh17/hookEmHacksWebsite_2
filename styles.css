@@ -1893,6 +1893,18 @@ body {
     width: 120px; 
   }
 }
+
+.sponsor-logo-container img[src*="janeStreet"] {
+  width: 200px; 
+  height: auto;  
+}
+
+@media (max-width: 768px) {
+  .sponsor-logo-container img[src*="janeStreet"] {
+    width: 120px; 
+  }
+}
+
 .sponsor-logo-container a {
   display: flex;
   align-items: center;
