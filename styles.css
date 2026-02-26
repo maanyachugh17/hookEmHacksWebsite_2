@@ -784,6 +784,15 @@ body {
   align-items: flex-start;
 }
 
+.hero-tower {
+  z-index: 0;
+}
+
+.sponsors-tiered-container {
+  position: relative;
+  z-index: 2;
+}
+
 .sponsors-content {
   flex: 1;
 }
@@ -1994,15 +2003,12 @@ body {
 
   .sponsors-tiered-container {
     padding-left: 0;
-    z-index: 1;
-    position: relative;
   }
 
   .hero-tower {
     position: relative;
     top: 0;
     margin-bottom: 20px;
-    z-index: 0;
   }
 
   #faq {
