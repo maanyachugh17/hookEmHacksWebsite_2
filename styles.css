@@ -1970,7 +1970,7 @@ body {
 
 .tier-1 .sponsor-tier-logos {
   gap: 20px;  
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 /* Tier 2 - Gold (Medium-Large) */
@@ -2018,6 +2018,7 @@ body {
     position: relative;
     top: 0;
     margin-bottom: 20px;
+    display: none;
   }
 
   #faq {
