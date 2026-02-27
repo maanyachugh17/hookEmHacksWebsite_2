@@ -1836,6 +1836,20 @@ body {
   transition: transform 0.3s ease;
 }
 
+.sponsor-logo-item {
+  flex-shrink: 0;
+  width: 150px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: none;
+  transition: transform 0.3s ease;
+}
+
 .sponsor-logo-item a {
   display: flex;
   align-items: center;
