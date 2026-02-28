@@ -400,16 +400,6 @@ body {
   margin-top: 6px;
 }
 
-@media (max-width: 480px) {
-  .countdown {
-    gap: 12px;
-    padding: 12px 20px;
-  }
-  .countdown-number {
-    font-size: 24px;
-  }
-}
-
 /* Section Reveal Animations */
 .section, .team-section {
   opacity: 0;
@@ -1537,17 +1527,7 @@ body {
   font-size: 20px;
 }
 
-@media (max-width: 480px) {
-  .about-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .stat-number {
-    font-size: 24px;
-  }
-  .judge-name {
-    font-size: 16px;
-  }
-}
+
 
 .landing-submarine {
   position: absolute;
@@ -2567,7 +2547,36 @@ body {
     min-height: 400px;
     padding: 20px 10px;
   }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-number {
+    font-size: 24px;
+  }
+  .judge-name {
+    font-size: 16px;
+  }
+  .countdown {
+    gap: 12px;
+    padding: 12px 20px;
+  }
+  .countdown-number {
+    font-size: 24px;
+  }
+
+  .schedule-filter-pills {
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 20px; 
+  }
+
+  .pill {
+    font-size: 11px;
+    padding: 5px 12px;
+  }
 }
+
 
 .footer-bottom-bar {
   background-image:
