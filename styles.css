@@ -615,6 +615,70 @@ body {
   border-radius: 16px;
 }
 
+/* ── Schedule Filter Pills ── */
+.schedule-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 8px 12px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.pill {
+  font-family: "Test3";
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  padding: 7px 18px;
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* All — dark filled when active */
+.pill-all              { border-color: transparent; color: #3a3a3a; }
+.pill-all.active       { background: #3a3a3a; color: #ffffff; border-color: #3a3a3a; }
+.pill-all:hover:not(.active) { background: rgba(0,0,0,0.1); }
+
+/* Required — blue */
+.pill-required              { border-color: #5ac8e8; color: #5ac8e8; }
+.pill-required.active,
+.pill-required:hover        { background: rgba(90,200,232,0.2); }
+
+/* Event — green */
+.pill-event              { border-color: #27ae60; color: #27ae60; }
+.pill-event.active,
+.pill-event:hover        { background: rgba(39,174,96,0.2); }
+
+/* Food — yellow */
+.pill-food              { border-color: #e8c030; color: #c8a000; }
+.pill-food.active,
+.pill-food:hover        { background: rgba(232,192,48,0.2); }
+
+/* For Fun — pink */
+.pill-forfun              { border-color: #ff79c6; color: #ff79c6; }
+.pill-forfun.active,
+.pill-forfun:hover        { background: rgba(255,121,198,0.2); }
+
+.sched-event {
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+}
+.sched-event.dimmed {
+  opacity: 0.12;
+}
+
 .schedule-grid {
   display: flex;
   min-width: 500px;
