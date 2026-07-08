@@ -31,37 +31,37 @@ let scrollStartY = 0;
 const teams = [ 
   {
     name: "ENTIRE TEAM",
-    photo: "../assets/team/design_team.jpg",
+    photo: "assets/team/design_team.jpg",
     leads: "Leads: ###",
     members: "Members: ###",
   },
   {
     name: "DESIGN TEAM",
-    photo: "../assets/team/design_team.jpg",
+    photo: "assets/team/design_team.jpg",
     leads: "Leads: ###",
     members: "Members: ###",
   },
   {
     name: "TECH TEAM",
-    photo: "../assets/team/tech_team.jpg",
+    photo: "assets/team/tech_team.jpg",
     leads: "Leads: ###",
     members: "Members: ###",
   },
   {
     name: "MARKETING TEAM",
-    photo: "../assets/team/marketing_team.jpg",
+    photo: "assets/team/marketing_team.jpg",
     leads: "Leads: ###",
     members: "Members: ###",
   },
   {
     name: "OPERATIONS TEAM",
-    photo: "../assets/team/operations_team.jpg",
+    photo: "assets/team/operations_team.jpg",
     leads: "Leads: ###",
     members: "Members: ###",
   },
   {
     name: "SPONSORSHIP TEAM",
-    photo: "../assets/team/sponsorship_team.jpg",
+    photo: "assets/team/sponsorship_team.jpg",
     leads: "Leads: ###",
     members: "Members: ###",
   },
