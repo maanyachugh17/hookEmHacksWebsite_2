@@ -1264,8 +1264,10 @@ body {
 .coming-soon-main {
   min-height: calc(100vh - 96px);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 28px;
   padding: 24px;
 }
 
@@ -1327,6 +1329,99 @@ body {
   filter: brightness(1.08);
 }
 
+.winners-section {
+  width: min(1120px, 96vw);
+  padding: 8px 4px 24px;
+}
+
+.winners-heading {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.winners-heading h2 {
+  margin: 0;
+  color: #001a33;
+  font-family: "Test", "Courier New", monospace;
+  font-size: clamp(28px, 4.8vw, 44px);
+  line-height: 1;
+}
+
+.winners-subtitle {
+  margin: 10px 0 0;
+  color: #0b395d;
+  font-size: clamp(14px, 2vw, 18px);
+}
+
+.winners-linkline {
+  margin: 8px 0 0;
+  color: #0b395d;
+  font-size: clamp(14px, 1.9vw, 17px);
+}
+
+.winners-linkline a {
+  color: #001a33;
+  font-family: "Atlantis1", "Courier New", monospace;
+  text-underline-offset: 3px;
+}
+
+.winners-linkline a:hover {
+  color: #0b395d;
+}
+
+.winner-projects-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.winner-project-card {
+  display: block;
+  text-decoration: none;
+  color: #001a33;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.64);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 14px 34px rgba(0, 26, 51, 0.16);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.winner-project-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 26, 51, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 26, 51, 0.2);
+}
+
+.winner-project-card:focus-visible {
+  outline: 3px solid #001a33;
+  outline-offset: 4px;
+}
+
+.winner-project-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.winner-project-name {
+  margin: 0;
+  padding: 14px 14px 16px;
+  text-align: center;
+  font-family: "Atlantis1", "Courier New", monospace;
+  font-size: 15px;
+  letter-spacing: 0.6px;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 640px) {
   .coming-soon-header {
     padding: 16px 16px 0;
@@ -1334,10 +1429,33 @@ body {
 
   .coming-soon-main {
     padding: 16px;
+    gap: 20px;
   }
 
   .coming-soon-card {
     padding: 36px 20px;
+  }
+
+  .winners-section {
+    width: min(1120px, 100%);
+    padding: 4px 0 20px;
+  }
+
+  .winner-projects-grid {
+    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .winner-project-name {
+    min-height: 52px;
+    font-size: 14px;
+    padding: 12px 12px 14px;
+  }
+}
+
+@media (max-width: 460px) {
+  .winner-projects-grid {
+    grid-template-columns: 1fr;
   }
 }
 
