@@ -15,15 +15,23 @@ const AUTO_EXTS = ["webp", "jpg", "jpeg", "png"];
 const DEPTH_STEP = 900;
 
 const OFFSETS = [
-  { x: "-14vw", y: "-6vh" },
-  { x: "13vw", y: "7vh" },
-  { x: "-9vw", y: "9vh" },
-  { x: "15vw", y: "-9vh" },
-  { x: "8vw", y: "-4vh" },
-  { x: "-17vw", y: "3vh" },
-  { x: "10vw", y: "-8vh" },
-  { x: "-7vw", y: "6vh" },
+  { x: -14, y: -6 },
+  { x: 13, y: 7 },
+  { x: -9, y: 9 },
+  { x: 15, y: -9 },
+  { x: 8, y: -4 },
+  { x: -17, y: 3 },
+  { x: 10, y: -8 },
+  { x: -7, y: 6 },
 ];
+
+// Phones get gentler side offsets so wide images never slide off-screen.
+const isSmallScreen = () => window.matchMedia("(max-width: 640px)").matches;
+const offsetFor = (i) => {
+  const o = OFFSETS[i % OFFSETS.length];
+  const scale = isSmallScreen() ? 0.45 : 1;
+  return { x: `${o.x * scale}vw`, y: `${o.y * scale}vh` };
+};
 
 function tryLoad(url) {
   return new Promise((resolve) => {
@@ -332,10 +340,13 @@ function initGallery(items, section) {
   const n = items.length;
   const travel = (n + 1) * DEPTH_STEP;
 
+  // svh keeps the height stable when the phone's address bar collapses;
+  // the vh assignment stays as fallback for older browsers.
   section.style.height = `${(n + 1) * 100}vh`;
+  section.style.height = `${(n + 1) * 100}svh`;
 
   items.forEach((el, i) => {
-    const offset = OFFSETS[i % OFFSETS.length];
+    const offset = offsetFor(i);
     gsap.set(el, {
       xPercent: -50,
       yPercent: -50,

@@ -1574,6 +1574,7 @@ html:has(.coming-soon-body) {
   position: relative;
   overflow: hidden;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1733,6 +1734,7 @@ html:has(.coming-soon-body) {
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100svh;
   overflow: hidden;
   perspective: 1100px;
   perspective-origin: 50% 50%;
@@ -1791,7 +1793,35 @@ html:has(.coming-soon-body) {
 
 @media (max-width: 640px) {
   .gallery-item {
-    width: 78vw;
+    width: 82vw;
+  }
+
+  .gallery-item img {
+    border-radius: 6px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
+  }
+
+  .gallery-scroll-cue {
+    bottom: 28px;
+    font-size: 11px;
+    letter-spacing: 4px;
+  }
+
+  .coming-soon-header {
+    padding: 16px;
+  }
+
+  .coming-soon-card h1 {
+    letter-spacing: 0.12em;
+  }
+
+  .intro-start {
+    gap: 22px;
+    padding: 24px;
+  }
+
+  .intro-start-btn {
+    padding: 14px 48px;
   }
 }
 
