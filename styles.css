@@ -1009,6 +1009,19 @@ body {
     drop-shadow(0 0 14px rgba(191, 87, 0, 0.5));
 }
 
+#registButton .register-button-label {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Atlantis1", "Courier New", monospace;
+  font-size: clamp(10px, 1vw, 16px);
+  letter-spacing: 1px;
+  color: #6b3b0b;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
 @keyframes float {
   0%,
   100% {
@@ -1459,6 +1472,267 @@ body {
 
 .footer-links a:hover {
   color: #5ac8e8;
+}
+
+/* ==============================
+   COMING SOON PAGE
+   ============================== */
+
+.coming-soon-body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Test3", "Courier New", monospace;
+  color: #001a33;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.45),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(90, 200, 232, 0.4),
+      transparent 50%
+    ),
+    linear-gradient(170deg, #8ecae6 0%, #7bb8dd 35%, #679fcf 100%);
+}
+
+.coming-soon-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: flex-end;
+  padding: 24px 24px 0;
+}
+
+.coming-soon-nav {
+  display: flex;
+  gap: 12px;
+}
+
+.year-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 88px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 2px solid rgba(0, 26, 51, 0.25);
+  background: rgba(255, 255, 255, 0.5);
+  color: #001a33;
+  text-decoration: none;
+  font-family: "Atlantis1", "Courier New", monospace;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.year-tab:hover {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 26, 51, 0.45);
+  transform: translateY(-1px);
+}
+
+.coming-soon-main {
+  min-height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 28px;
+  padding: 24px;
+}
+
+.coming-soon-card {
+  width: min(640px, 92vw);
+  text-align: center;
+  padding: 48px 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.64);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 18px 48px rgba(0, 26, 51, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.eyebrow {
+  font-family: "Atlantis1", "Courier New", monospace;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #0b395d;
+  margin-bottom: 12px;
+}
+
+.coming-soon-card h1 {
+  font-family: "Test", "Courier New", monospace;
+  font-size: clamp(42px, 10vw, 84px);
+  line-height: 0.95;
+  margin-bottom: 18px;
+  color: #001a33;
+}
+
+.coming-soon-copy {
+  font-size: clamp(16px, 2.4vw, 20px);
+  line-height: 1.6;
+  margin: 0 auto 28px;
+  max-width: 48ch;
+}
+
+.apply-team-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 2px solid #001a33;
+  background: #001a33;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Atlantis1", "Courier New", monospace;
+  letter-spacing: 1px;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.apply-team-link:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.winners-section {
+  width: min(1120px, 96vw);
+  padding: 8px 4px 24px;
+}
+
+.winners-heading {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.winners-heading h2 {
+  margin: 0;
+  color: #001a33;
+  font-family: "Test", "Courier New", monospace;
+  font-size: clamp(28px, 4.8vw, 44px);
+  line-height: 1;
+}
+
+.winners-subtitle {
+  margin: 10px 0 0;
+  color: #0b395d;
+  font-size: clamp(14px, 2vw, 18px);
+}
+
+.winners-linkline {
+  margin: 8px 0 0;
+  color: #0b395d;
+  font-size: clamp(14px, 1.9vw, 17px);
+}
+
+.winners-linkline a {
+  color: #001a33;
+  font-family: "Atlantis1", "Courier New", monospace;
+  text-underline-offset: 3px;
+}
+
+.winners-linkline a:hover {
+  color: #0b395d;
+}
+
+.winner-projects-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.winner-project-card {
+  display: block;
+  text-decoration: none;
+  color: #001a33;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.64);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 14px 34px rgba(0, 26, 51, 0.16);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.winner-project-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 26, 51, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 26, 51, 0.2);
+}
+
+.winner-project-card:focus-visible {
+  outline: 3px solid #001a33;
+  outline-offset: 4px;
+}
+
+.winner-project-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.winner-project-name {
+  margin: 0;
+  padding: 14px 14px 16px;
+  text-align: center;
+  font-family: "Atlantis1", "Courier New", monospace;
+  font-size: 15px;
+  letter-spacing: 0.6px;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .coming-soon-header {
+    padding: 16px 16px 0;
+  }
+
+  .coming-soon-main {
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .coming-soon-card {
+    padding: 36px 20px;
+  }
+
+  .winners-section {
+    width: min(1120px, 100%);
+    padding: 4px 0 20px;
+  }
+
+  .winner-projects-grid {
+    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .winner-project-name {
+    min-height: 52px;
+    font-size: 14px;
+    padding: 12px 12px 14px;
+  }
+}
+
+@media (max-width: 460px) {
+  .winner-projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .footer-dot {
