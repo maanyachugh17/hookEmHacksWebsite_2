@@ -3,59 +3,877 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hook 'em Hacks 2026 | Coming Soon</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="updatedAssets/scrollbarIcon.svg"
-    />
+    <meta name="description" content="Hook 'Em Hacks is a 24-hour AI hackathon at UT Austin. April 18-19, 2026. Free food, workshops, mentors, and prizes." />
+    <meta property="og:title" content="Hook 'Em Hacks 2026" />
+    <meta property="og:description" content="24-hour AI hackathon at UT Austin. April 18-19, 2026. Free food, workshops, mentors, and prizes." />
+    <meta property="og:image" content="./updatedAssets/background.webp" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hook 'Em Hacks 2026" />
+    <meta name="twitter:description" content="24-hour AI hackathon at UT Austin. April 18-19, 2026." />
+    <title>Hook 'em Hacks 2026</title>
+    <link rel="icon" type="image/png" href="./updatedAssets/scrollbarIcon.svg" />
+    <link rel="preload" href="./assets/featherlessLogo.png" as="image" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="coming-soon-body">
-    <header class="coming-soon-header">
-      <nav class="coming-soon-nav" aria-label="Primary">
-        <a class="year-tab" href="2025.html">2025</a>
-      </nav>
-    </header>
+  <body>
+      <div class="ocean-bubbles" id="oceanBubbles"></div>
 
-    <main class="coming-soon-main">
-      <section class="coming-soon-card" aria-labelledby="comingSoonTitle">
-        <p class="eyebrow">Hook 'em Hacks</p>
-        <h1 id="comingSoonTitle">Coming Soon</h1>
-        <p class="coming-soon-copy">
-          We are building the next Hackathon experience. Check back soon for the
-          full 2026 site.
-        </p>
-        <a
-          class="apply-team-link"
-          href="https://docs.google.com/forms/d/e/1FAIpQLScXPiXwx-AjOv69atsBNd2z7Nl71lcat-92qIPdNaTMzR6aGQ/viewform"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Apply to Our Team
-        </a>
-      </section>
+    <!-- Custom Scrollbar -->
+    <div class="custom-scrollbar">
+      <div class="custom-scrollbar-track"></div>
+      <div class="scroll-progress"></div>
+      <div class="custom-scrollbar-thumb" id="scrollThumb">
+        <img src="./updatedAssets/scrollbarIcon.svg" alt="Bevo" />
+      </div>
+    </div>
 
-      <section class="winners-section" aria-labelledby="winnerProjectsTitle">
-        <div class="winners-heading">
-          <p class="eyebrow">Hook 'em Hacks 2025</p>
-          <h2 id="winnerProjectsTitle">Winner Projects</h2>
-          <p class="winners-subtitle">Here are some projects that won.</p>
-          <p class="winners-linkline">
-            Here is the link to all projects:
-            <a
-              href="https://hook-em-hacks.devpost.com/project-gallery"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Devpost Project Gallery
-            </a>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+      <a href="#" class="navbar-logo" id="logoLink">
+        <img
+          src="./updatedAssets/scrollbarIcon.svg"
+          alt="Hook 'em Hacks Logo"
+          class="navbar-logo-img"
+        />
+        <span></span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar-links" id="navbarLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#tracks">Tracks</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#team">Meet the Team</a></li>
+        <li><a href="https://forms.gle/RaPX1hgw51VMnHM28" target="_blank">Register</a></li>
+      </ul>
+    </nav>
+
+    <!-- Landing Section -->
+    <section class="landing-section" id="landingSection">
+      <div class="svg-background-overlay">
+        <img src="./updatedAssets/background.webp" alt="Underwater Scene" />
+      </div>
+      <div class="intro-banner">
+        <img src="./updatedAssets/introBanner.webp" alt="Hook 'em Hacks Banner" />
+          <div class="banner-text">
+            <p>HOOK 'EM HACKS<br>
+              April 18–19, 2026</p>
+          </div>
+        <button id="registButton">
+          <img src="./updatedAssets/registerButton.webp" alt="Register" />
+          <span class="register-label">Register</span>
+        </button>
+      </div>
+      <div class="countdown" id="countdown">
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-days">--</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-hours">--</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-mins">--</span>
+          <span class="countdown-label">Mins</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-secs">--</span>
+          <span class="countdown-label">Secs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <section id="about" class="section">
+        <h2>What is Hook 'Em Hacks?</h2>
+        <div class="about-card">
+          <p>
+            <strong>Hook 'Em Hacks</strong> is a 24-hour, AI
+            hackathon where students come together for a weekend of building,
+            learning, and creativity through technology. Participants from all
+            majors and experience levels can form teams (or work solo), attend
+            hands-on workshops, get guidance from mentors, and turn ideas into
+            real AI projects across multiple impact-focused tracks. Whether it’s
+            your first hackathon or you’ve built before, Hook ’Em Hacks gives
+            you the support, community, and resources to create something
+            meaningful from scratch.
           </p>
         </div>
-        <div id="winnerProjectsGrid" class="winner-projects-grid" aria-live="polite"></div>
+
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-number">~250</span>
+            <span class="stat-label">Selected Builders</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">70%</span>
+            <span class="stat-label">Early-Career Engineers</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Majors Represented</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">40%</span>
+            <span class="stat-label">Women / Non-Binary</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Mentors & Industry Judges</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">100K+</span>
+            <span class="stat-label">Campus & Digital Reach</span>
+          </div>
+        </div>
+
+        <div class="about-judges">
+          <span class="judges-label">Judges from</span>
+          <div class="judges-logos">
+            <span class="judge-name">Apple</span>
+            <span class="judge-dot">·</span>
+            <span class="judge-name">Google</span>
+            <span class="judge-dot">·</span>
+            <span class="judge-name">Meta</span>
+            <span class="judge-dot">·</span>
+            <span class="judge-name">LinkedIn</span>
+            <span class="judge-dot">·</span>
+            <span class="judge-name">& more</span>
+          </div>
+        </div>
+
+        <!-- Floating Bevo Decorations -->
+        <div class="about-deco about-bevo-left">
+          <img src="./updatedAssets/floatingBevo.webp" alt="Bevo" />
+        </div>
+        <div class="about-deco about-bevo-right">
+          <img src="./updatedAssets/floatingBevo.webp" alt="Bevo" />
+        </div>
+        <div class="about-bubble about-bubble-1"></div>
+        <div class="about-bubble about-bubble-2"></div>
+        <div class="about-bubble about-bubble-3"></div>
+        <div class="about-bubble about-bubble-4"></div>
+        <div class="about-bubble about-bubble-5"></div>
+      </section>
+
+      <section id="tracks" class="section">
+        <h2 class="tracks-heading">TRACKS</h2>
+        <div class="tracks-grid">
+          <div class="track-card">
+            <img src="./updatedAssets/good.svg" alt="Blockchain & Decentralized AI" class="track-icon" />
+            <h3>BLOCKCHAIN & DECENTRALIZED AI</h3>
+            <p>
+              Build AI systems powered by blockchain—decentralized models, on-chain inference, smart contract agents, and trustless AI pipelines.
+            </p>
+          </div>
+          <div class="track-card">
+            <img src="./updatedAssets/multimodal.svg" alt="Multimodal Search" class="track-icon" />
+            <h3>MULTIMODAL SEARCH & GENERATION</h3>
+            <p>
+              Create AI systems that search, understand, and generate across text, images, audio, and video.
+            </p>
+          </div>
+          <div class="track-card">
+            <img src="./updatedAssets/security.svg" alt="Security" class="track-icon" />
+            <h3>SECURITY IN AN AI-FIRST WORLD</h3>
+            <p>
+              <strong>Sponsored by IBM</strong><br>
+               Design secure, trustworthy AI systems that protect users, data, and infrastructure from emerging threats.          
+            </p>
+          </div>
+          <div class="track-card">
+            <img src="./updatedAssets/finance.svg" alt="Financial Systems" class="track-icon" />
+            <h3>INTELLIGENT FINANCIAL & MARKET SYSTEMS</h3>
+            <p>
+              Build data-driven technologies for markets, trading, risk, and real-time decision making.
+            </p>
+          </div>
+          <div class="track-card">
+            <img src="./updatedAssets/HEALTH.svg" alt="Patient-Centered Tech" class="track-icon" />
+            <h3>PATIENT-CENTERED TECH</h3>
+            <p>
+              Develop technology that improves patient care, access, and health outcomes with people at the center.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="swimming-bevo">
+        <img src="./updatedAssets/floatingBevo.webp" alt="Bevo" />
+      </div>
+      <div class="bevo-bubbles">
+        <div class="bevo-mini-bubble"></div>
+        <div class="bevo-mini-bubble"></div>
+        <div class="bevo-mini-bubble"></div>
+      </div>
+      <section id="schedule" class="section">
+        <h2>Event Schedule</h2>
+        <!-- Filter pills hidden: schedule uses static SVG images -->
+        <!--
+        <div class="schedule-filter-pills">
+        <button class="pill pill-all active" data-filter="all">All</button>
+        <button class="pill pill-required" data-filter="required">Required</button>
+        <button class="pill pill-event" data-filter="event">Event</button>
+        <button class="pill pill-food" data-filter="food">Food</button>
+        <button class="pill pill-forfun" data-filter="forfun">For Fun</button>
+      </div>
+      -->
+      
+    <div class="schedule-svg-wrapper">
+      <img src="./updatedAssets/preEventsSchedule.png" alt="Pre-Events" class="schedule-pre-events" />
+      <div class="schedule-days-row">
+        <img src="./updatedAssets/dayOneSchedule.svg" alt="Day 1 Schedule" class="schedule-svg" />
+        <img src="./updatedAssets/dayTwoSchedule.svg" alt="Day 2 Schedule" class="schedule-svg" />
+      </div>
+    </div>
+
+
+      <!-- 
+      <div class="schedule-grid-wrapper">
+          <div class="schedule-grid">
+            <div class="schedule-col time-col">
+              <div class="schedule-day-header"></div>
+              <div class="time-slot">9AM</div>
+              <div class="time-slot">10AM</div>
+              <div class="time-slot">11AM</div>
+              <div class="time-slot">12PM</div>
+              <div class="time-slot">1PM</div>
+              <div class="time-slot">2PM</div>
+              <div class="time-slot">3PM</div>
+              <div class="time-slot">4PM</div>
+              <div class="time-slot">5PM</div>
+              <div class="time-slot">6PM</div>
+              <div class="time-slot">7PM</div>
+              <div class="time-slot">8PM</div>
+              <div class="time-slot">9PM</div>
+              <div class="time-slot">10PM</div>
+              <div class="time-slot">11PM</div>
+              <div class="time-slot">12AM</div>
+            </div>
+
+            <div class="schedule-col day-col">
+              <div class="schedule-day-header">4/18</div>
+              <div class="schedule-events" style="--rows: 15;">
+                <div class="sched-event color-blue" style="--start: 0; --span: 1;">
+                  <span class="event-name">Check-in &amp; Registration</span>
+                  <span class="event-time">9:00 AM</span>
+                </div>
+                <div class="sched-event color-purple" style="--start: 1; --span: 1;">
+                  <span class="event-name">🤝 Team Finding</span>
+                  <span class="event-time">10:00 AM</span>
+                </div>
+                <div class="sched-event color-teal" style="--start: 2; --span: 1;">
+                  <span class="event-name">Opening Ceremony</span>
+                  <span class="event-time">11:00 AM</span>
+                </div>
+                <div class="sched-event color-orange" style="--start: 3; --span: 1;">
+                  <span class="event-name">🚀 Hacking Begins!</span>
+                  <span class="event-time">12:00 PM</span>
+                </div>
+                <div class="sched-event color-green" style="--start: 4; --span: 1;">
+                  <span class="event-name">Lunch</span>
+                  <span class="event-time">12:30 PM</span>
+                </div>
+                <div class="sched-event color-purple" style="--start: 5; --span: 1;">
+                  <span class="event-name">Workshop: Longhorn Neurotech</span>
+                  <span class="event-time">2:00 PM</span>
+                </div>
+                <div class="sched-event color-purple" style="--start: 6; --span: 1;">
+                  <span class="event-name">Workshop: ML Basics</span>
+                  <span class="event-time">3:00 PM</span>
+                </div>
+                <div class="sched-event color-purple" style="--start: 7; --span: 1;">
+                  <span class="event-name">Workshop: Agentic Development</span>
+                  <span class="event-time">4:00 PM</span>
+                </div>
+                <div class="sched-event color-purple" style="--start: 8; --span: 1;">
+                  <span class="event-name">Workshop: How to Make a Game</span>
+                  <span class="event-time">5:00 PM</span>
+                </div>
+                <div class="sched-event color-green" style="--start: 9; --span: 1;">
+                  <span class="event-name">Dinner</span>
+                  <span class="event-time">6:00 PM</span>
+                </div>
+                <div class="sched-event color-orange" style="--start: 10; --span: 1;">
+                  <span class="event-name">⌨️ Typing Contest</span>
+                  <span class="event-time">7:00 PM</span>
+                </div>
+                <div class="sched-event color-orange" style="--start: 11; --span: 1;">
+                  <span class="event-name">🏆 Cup Stacking</span>
+                  <span class="event-time">8:00 PM</span>
+                </div>
+                <div class="sched-event color-purple" style="--start: 12; --span: 1;">
+                  <span class="event-name">🧠 Trivia Night</span>
+                  <span class="event-time">9:00 PM</span>
+                </div>
+                <div class="sched-event color-teal" style="--start: 13; --span: 1;">
+                  <span class="event-name">🎤 Karaoke Hour</span>
+                  <span class="event-time">10:00 PM</span>
+                </div>
+                <div class="sched-event color-green" style="--start: 15; --span: 1;">
+                  <span class="event-name">🍕 Midnight Snacks</span>
+                  <span class="event-time">12:00 AM</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="schedule-col day-col">
+              <div class="schedule-day-header">4/19</div>
+              <div class="schedule-events" style="--rows: 15;">
+                <div class="sched-event color-teal" style="--start: 0; --span: 1;">
+                  <span class="event-name">🚶 Morning Walk</span>
+                  <span class="event-time">9:00 AM</span>
+                </div>
+                <div class="sched-event color-purple" style="--start: 1; --span: 1;">
+                  <span class="event-name">🎤 Workshop: How to Pitch</span>
+                  <span class="event-time">10:00 AM</span>
+                </div>
+                <div class="sched-event color-orange" style="--start: 2; --span: 1;">
+                  <span class="event-name">🛑 Hacking Ends</span>
+                  <span class="event-time">11:00 AM</span>
+                </div>
+                <div class="sched-event color-blue" style="--start: 3; --span: 2;">
+                  <span class="event-name">Lunch &amp; Judging</span>
+                  <span class="event-time">12:00 PM</span>
+                </div>
+                <div class="sched-event color-purple" style="--start: 5; --span: 2;">
+                  <span class="event-name">Final Presentations</span>
+                  <span class="event-time">2:00 PM</span>
+                </div>
+                <div class="sched-event color-teal" style="--start: 7; --span: 1;">
+                  <span class="event-name">🎉 Closing &amp; Awards</span>
+                  <span class="event-time">4:00 PM</span>
+                </div>
+                <div class="sched-event color-orange" style="--start: 8; --span: 1;">
+                  <span class="event-name">Event Ends</span>
+                  <span class="event-time">5:00 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+      </section>
+
+      <section id="faq" class="section">
+        <div class="faq-content-wrapper">
+          <h2>FAQs</h2>
+
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Who can attend?</h3>
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Hook 'Em Hacks is open to all current college students,
+                  regardless of major or experience level. High school students
+                  are welcome with parental consent.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How much does it cost?</h3>
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Hook 'Em Hacks is completely FREE! We'll provide meals,
+                  snacks, swag, and everything you need for an amazing weekend
+                  of hacking.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What should I bring?</h3>
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Bring your laptop, chargers, valid student ID, and enthusiasm!
+                  We recommend bringing a sleeping bag if you plan to rest
+                  during the event.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Do I need a team?</h3>
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Teams can have up to 4 people. You can come with a team or
+                  form one at the event during our team formation session. Solo
+                  hackers are also welcome!
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What can I build?</h3>
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  All projects must incorporate AI in some way. Choose from
+                  five impact-focused tracks—Blockchain & Decentralized AI,
+                  Multimodal Search, Security in an AI-First World,
+                  Patient-Centered AI, and Intelligent Financial Systems—with over $10,000 in
+                  prizes across categories.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Where do I park?</h3>
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Parking is available at Brazos Garage on the UT Austin
+                  campus. Please note that garage rates apply.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Is travel reimbursement offered?</h3>
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Unfortunately, we are not able to provide travel
+                  reimbursement at this time.
+                </p>
+              </div>
+            
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Can I volunteer to mentor?</h3>
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Upperclassmen, graduate students, and industry professionals
+                  are all welcome to volunteer as mentors! Please fill out
+                  <a href="https://forms.gle/cx7c8fZfMB9LnmSk8" target="_blank">this form</a>.
+                  All mentors will receive swag as a token of our appreciation!
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Interested in judging?</h3>
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  We'd love to have you! Industry professionals and faculty
+                  are welcome to judge. Please fill out
+                  <a href="https://forms.gle/gZn5ku2KW41TAAZY7" target="_blank">this form</a>
+                  and we'll be in touch with more details.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-contact">
+              Have more questions? We're here for you! Send us an email at
+              <a href="mailto:hookemhacks@gmail.com">hookemhacks@gmail.com</a>,
+              or reach out to us on
+              <a href="https://www.instagram.com/hookemhacks/" target="_blank">Instagram</a>
+              or
+              <a href="https://www.linkedin.com/company/hook-em-hacks" target="_blank">LinkedIn</a>!
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-side">
+          <img src="./updatedAssets/dkr.webp" alt="FAQ graphic" />
+        </div>
+      </section>
+
+      <section id="sponsors" class="section">
+        <div class="sponsors-header">
+          <h2>Sponsors</h2>
+          <p>
+            INTERESTED IN SPONSORING?<br>
+            If you would like to sponsor Hook 'Em Hacks,<br>
+            please reach out to us at <a href="mailto:hookemhacks@gmail.com">hookemhacks@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="sponsors-scroll-container">
+          <div class="sponsors-scroll-track">
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/harper_name_logo.svg" alt="Harper" />
+            </div>
+            <div class="sponsor-logo-item_hrt">
+              <img src="./updatedAssets/Hudson_River_Trading_Logo.svg" alt="Hudson River Trading" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/janeStreet.svg" alt="Jane Street" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/awsLogo.svg" alt="AWS" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/Pure-Buttons-Blue-Gradient-Logo-RGB.svg" alt="Pure Buttons" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/BrightInitiative__PrimaryLight_by.png" alt="Bright Initiative by Bright Data" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/uevLogo.jpg" alt="UEV" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/featherlessLogo.png" alt="Sponsor 1" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/sportsSenseLogo.jpeg" alt="Secret Sponsor" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/vercel.svg" alt="Sponsor 2" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/logoblack.svg" alt="Sponsor 3" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/bookpeopleLogo.png" alt="Sponsor 4" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/auntie-annes.svg" alt="Sponsor 5" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/loroLogo.png" alt="Sponsor 6" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img
+                src="./assets/idZpVEJNpo_1771273635096.svg"
+                alt="Sponsor 7"
+              />
+            </div>
+            <div class="sponsor-logo-item">
+              <img
+                src="./assets/supabase-logo-wordmark--light.svg"
+                alt="Sponsor 9"
+              />
+            </div>
+            <div class="sponsor-logo-item">
+              <img
+                src="./assets/idA0B2RJy8_1771274074771.png"
+                alt="Sponsor 10"
+              />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/harper_name_logo.svg" alt="Harper" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/Hudson_River_Trading_Logo.svg" alt="Hudson River Trading" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/janeStreet.svg" alt="Jane Street" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/awsLogo.svg" alt="AWS" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/Pure-Buttons-Blue-Gradient-Logo-RGB.svg" alt="Pure Buttons" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/BrightInitiative__PrimaryLight_by.png" alt="Bright Initiative by Bright Data" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/uevLogo.jpg" alt="UEV" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/featherlessLogo.png" alt="Sponsor 1" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./updatedAssets/sportsSenseLogo.jpeg" alt="Secret Sponsor" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/vercel.svg" alt="Sponsor 2" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/logoblack.svg" alt="Sponsor 3" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/bookpeopleLogo.png" alt="Sponsor 4" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/auntie-annes.svg" alt="Sponsor 5" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img src="./assets/loroLogo.png" alt="Sponsor 6" />
+            </div>
+            <div class="sponsor-logo-item">
+              <img
+                src="./assets/idZpVEJNpo_1771273635096.svg"
+                alt="Sponsor 7"
+              />
+            </div>
+            <div class="sponsor-logo-item">
+              <img
+                src="./assets/supabase-logo-wordmark--light.svg"
+                alt="Sponsor 9"
+              />
+            </div>
+            <div class="sponsor-logo-item">
+              <img
+                src="./assets/idA0B2RJy8_1771274074771.png"
+                alt="Sponsor 10"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW TIERED SPONSOR STRUCTURE -->
+        <div class="sponsors-with-tower">
+          <div class="hero-tower">
+            <img src="./updatedAssets/tower.webp" alt="UT Tower" />
+          </div>
+
+          <div class="sponsors-tiered-container">
+            <!-- Tier 1 - Largest (3 sponsors) -->
+            <div class="sponsor-tier tier-1">
+              <div class="sponsor-tier-logos">
+                <div class="sponsor-logo-container" onclick="window.open('https://www.harperinsure.com/', '_blank')" style="cursor:pointer;">
+                  <img src="./updatedAssets/harper_name_logo.svg" alt="Harper" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://www.hudsonrivertrading.com/', '_blank')" style="cursor:pointer;">
+                  <img src="./updatedAssets/Hudson_River_Trading_Logo.svg" alt="Hudson River Trading" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://www.ibm.com/', '_blank')" style="cursor:pointer;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://vercel.com/', '_blank')" style="cursor:pointer;">
+                  <img src="./assets/vercel.svg" alt="Vercel" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://lovable.dev/', '_blank')" style="cursor:pointer;">
+                  <img src="./assets/logoblack.svg" alt="Lovable" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Tier 2 - Medium-Large -->
+            <div class="sponsor-tier tier-2">
+              <div class="sponsor-tier-logos">
+                <div class="sponsor-logo-container" onclick="window.open('https://supabase.com/', '_blank')" style="cursor:pointer;">
+                  <img
+                    src="./assets/supabase-logo-wordmark--light.svg"
+                    alt="Supabase"
+                  />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://www.janestreet.com/', '_blank')" style="cursor:pointer;">
+                  <img
+                    src="./updatedAssets/janeStreet.svg"
+                    alt="Jane Street"
+                  />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://aws.amazon.com/', '_blank')" style="cursor:pointer;">
+                  <img
+                    src="./updatedAssets/awsLogo.svg"
+                    width="150px"
+                    alt="AWS"
+                  />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://bookpeople.com/', '_blank')" style="cursor:pointer;">
+                  <img src="./assets/bookpeopleLogo.png" alt="BookPeople" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://featherless.ai', '_blank')" style="cursor:pointer;">
+                  <img src="./assets/featherlessLogo.png" alt="Featherless AI" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://www.ue.ventures/', '_blank')" style="cursor:pointer;">
+                  <img src="./updatedAssets/uevLogo.jpg" alt="UEV" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://www.linkedin.com/company/sportssenseco/', '_blank')" style="cursor:pointer;">
+                  <img src="./updatedAssets/sportsSenseLogo.jpeg" alt="Sports Sense" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://auntieannes.com/', '_blank')" style="cursor:pointer;">
+                  <img src="./assets/auntie-annes.svg" alt="Sponsor 6" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Tier 3 - Medium (2 sponsors) -->
+            <div class="sponsor-tier tier-3">
+              <div class="sponsor-tier-logos">
+                <div class="sponsor-logo-container" onclick="window.open('https://mlh.link/MLH-PureButtons-hackathons', '_blank')" style="cursor:pointer;">
+                  <img src="./updatedAssets/Pure-Buttons-Blue-Gradient-Logo-RGB.svg" alt="Pure Buttons" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://brightdata.com/', '_blank')" style="cursor:pointer;">
+                  <img src="./updatedAssets/BrightInitiative__PrimaryLight_by.png" alt="Bright Initiative by Bright Data" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://www.loroeats.com/', '_blank')" style="cursor:pointer;">
+                  <img src="./assets/loroLogo.png" alt="Sponsor 7" />
+                </div>
+                <div class="sponsor-logo-container" onclick="window.open('https://cabobobs.com/', '_blank')" style="cursor:pointer;">
+                  <img
+                    src="./assets/idA0B2RJy8_1771274074771.png"
+                    alt="Sponsor 8"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Tier 4 - Smallest (2 sponsors) -->
+            <div class="sponsor-tier tier-4">
+              <div class="sponsor-tier-logos">
+                <div class="sponsor-logo-container" onclick="window.open('https://www.cookiedelivery.com/', '_blank')" style="cursor:pointer;">
+                  <img
+                    src="./assets/idZpVEJNpo_1771273635096.svg"
+                    alt="Sponsor 10"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="partners" class="section partners-section">
+        <h3 class="partners-title">Partners</h3>
+        <div class="partners-logos">
+          <img src="./updatedAssets/shipvelric.jpg" alt="Ship | Velric" class="partner-logo" />
+        </div>
       </section>
     </main>
 
-    <script src="comingSoonWinners.js" defer></script>
+    <footer class="footer">
+      <div class="footer-campus-container">
+        <img
+          src="./updatedAssets/utCampus.webp"
+          alt="UT Campus"
+          class="footer-campus-img"
+        />
+      </div>
+      <div class="footer-bottom-bar">
+        <section id="team" class="team-section">
+          <h2>Meet the Team</h2>
+
+          <!-- <div class="team-tabs" id="teamTabs"></div> -->
+
+          <div class="team-carousel-container">
+            <button
+              class="team-arrow team-arrow-left"
+              onclick="changeTeam(-1)"
+              aria-label="Previous team"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <div class="team-card" id="teamCard">
+              <div class="team-photo-container">
+                <img
+                  id="teamPhoto"
+                  src="./assets/team/design_team.jpg"
+                  alt="Design Team"
+                />
+                <!-- <div class="team-coming-soon">Coming Soon</div> -->
+              </div>
+              <div class="team-info">
+                <h3 id="teamName"></h3>
+                <div class="team-detail">
+                  <span class="team-label">Leads</span>
+                  <p id="teamLeads"></p>
+                </div>
+                <div class="team-detail">
+                  <span class="team-label">Members</span>
+                  <p id="teamMembers"></p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="team-arrow team-arrow-right"
+              onclick="changeTeam(1)"
+              aria-label="Next team"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <div class="team-indicators" id="teamIndicators"></div>
+        </section>
+        <p class="footer-made-with">Made with 💕  by the Hook 'Em Hacks Team 🐂🧡🤘</p>
+        <p class="footer-copyright">© 2026 Hook 'Em Hacks. Hook 'Em.<br> 
+          All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="mailto:hookemhacks@gmail.com" target="_blank">Email</a>
+          <span class="footer-dot">•</span>
+          <a href="https://www.linkedin.com/company/hook-em-hacks/" target="_blank">LinkedIn</a>
+          <span class="footer-dot">•</span>
+          <a href="https://www.instagram.com/hookemhacks/" target="_blank">Instagram</a>
+          <span class="footer-dot">•</span>
+          <a href="https://mlh.io/code-of-conduct" target="_blank">Code of Conduct</a>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:30.6px;top:0;width:10%;z-index:10000" 
+    href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=gray" target="_blank">
+    <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-gray.svg" 
+    alt="Major League Hacking 2026 Hackathon Season" 
+    style="width:100%">
+  </a>
+
+
+    <!-- MLH Trust Badge (Brighter Blue Version) (Below nav bar)
+    <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:30.6px;top:0;width:10%;z-index:998" 
+    href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=blue" target="_blank">
+    <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-blue.svg" alt="Major League Hacking 2026 Hackathon Season" 
+    style="width:100%">
+    </a>
+    -->
   </body>
 </html>
