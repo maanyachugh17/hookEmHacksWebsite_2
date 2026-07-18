@@ -1,1 +1,8 @@
 node_modules/
+
+# Camera originals - only the optimized numbered .webp files are used by the site
+assets/comingSoonGallery/IMG_*
+assets/comingSoonGallery/*.CR3
+
+# Keep source music downloads out of git; commit the clean bg-music.* copy
+assets/comingSoonGallery/Chill*
